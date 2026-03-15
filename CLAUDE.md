@@ -39,6 +39,29 @@ Benchmark cards auto-refresh every 60 seconds via `dcc.Interval`.
 - `update_extra_charts` — cumulative performance (from 2000, weekly) and monthly volume (last 3 years, daily); triggered by ticker or theme.
 - `update_comparison` — normalized close price comparison (base 100) for tickers in `compare-store`.
 
+## GitHub Repository
+
+O projeto está publicado em **https://github.com/aalbemd/financial-dashboard**.
+
+### Auto-sync com GitHub
+
+A cada alteração feita por Claude Code (Edit ou Write), o projeto é automaticamente commitado e enviado ao GitHub via hook `PostToolUse` configurado em `.claude/settings.local.json`.
+
+O hook executa:
+```bash
+git add -A
+git commit -m "auto-update: YYYY-MM-DD HH:MM:SS"
+git push origin master
+```
+
+Para sincronizar manualmente:
+```bash
+cd "financial-dashboard"
+git add -A && git commit -m "mensagem" && git push origin master
+```
+
+O `gh` CLI está instalado em `C:\Program Files\GitHub CLI\gh.exe` e autenticado com a conta **aalbemd**.
+
 ### Styling
 
 `assets/style.css` is auto-loaded by Dash. Theme switching is done by toggling the `className` on `#app-container` between `light-theme` and `dark-theme`; chart colors are recalculated in Python callbacks and passed to Plotly figures.
