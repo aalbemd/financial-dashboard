@@ -1,0 +1,354 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   CSS Variables — Light theme is DEFAULT (Status Invest inspired)
+   Dark theme applied via .dark-theme class on #app-container
+   ══════════════════════════════════════════════════════════════════════════ */
+:root {
+  --bg-1:      #f0f2f5;   /* page background */
+  --bg-2:      #ffffff;   /* cards, sidebar */
+  --bg-3:      #e9ecef;   /* hover states */
+  --text-1:    #1f2937;   /* primary text */
+  --text-2:    #6b7280;   /* secondary/label text */
+  --border:    #dee2e6;   /* card borders */
+  --border-2:  #ced4da;   /* input borders */
+  --accent:    #2563eb;   /* blue accent */
+  --pos:       #0fa958;   /* green */
+  --neg:       #e84040;   /* red */
+  --shadow:    0 1px 4px rgba(0,0,0,0.08);
+}
+
+.dark-theme {
+  --bg-1:      #0d1117;
+  --bg-2:      #161b22;
+  --bg-3:      #1c2128;
+  --text-1:    #e6edf3;
+  --text-2:    #8b949e;
+  --border:    #21262d;
+  --border-2:  #30363d;
+  --accent:    #00d4aa;
+  --pos:       #00d4aa;
+  --neg:       #ff4d4d;
+  --shadow:    0 1px 4px rgba(0,0,0,0.4);
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background-color: var(--bg-1);
+  color: var(--text-1);
+  font-family: "Inter", "Segoe UI", sans-serif;
+  margin: 0;
+}
+
+.app-container {
+  min-height: 100vh;
+  background-color: var(--bg-1);
+  padding: 0;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────── */
+.header-row {
+  background-color: var(--bg-2);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  box-shadow: var(--shadow);
+}
+
+.app-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+.theme-btn {
+  font-size: 0.75rem !important;
+  padding: 4px 10px !important;
+  border-color: var(--border-2) !important;
+  color: var(--text-2) !important;
+}
+
+.theme-btn:hover {
+  background-color: var(--bg-3) !important;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────────────── */
+.sidebar {
+  background-color: var(--bg-2);
+  border-right: 1px solid var(--border);
+  padding: 12px 8px;
+  overflow-y: auto;
+  height: calc(100vh - 56px);
+  min-width: 180px;
+  box-shadow: var(--shadow);
+}
+
+.sidebar-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.sidebar-divider {
+  border-color: var(--border);
+  margin: 10px 0;
+}
+
+/* ── Benchmark cards ─────────────────────────────────────────────────── */
+.benchmark-card {
+  background-color: var(--bg-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.benchmark-card:hover {
+  border-color: var(--accent) !important;
+  background-color: var(--bg-3) !important;
+}
+
+.benchmark-name {
+  font-size: 0.67rem;
+  color: var(--text-2);
+  margin: 0 0 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.benchmark-price {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-1);
+  margin: 0 0 2px 0;
+}
+
+.benchmark-badge {
+  font-size: 0.63rem;
+  padding: 2px 5px;
+}
+
+/* ── Ticker input ────────────────────────────────────────────────────── */
+.ticker-input {
+  background-color: var(--bg-2) !important;
+  border: 1px solid var(--border-2) !important;
+  color: var(--text-1) !important;
+  font-size: 0.78rem !important;
+}
+
+.ticker-input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15) !important;
+}
+
+.add-btn {
+  font-size: 1.1rem !important;
+  padding: 0 10px !important;
+}
+
+/* ── Watchlist items ─────────────────────────────────────────────────── */
+.empty-watchlist {
+  font-size: 0.7rem;
+  color: var(--text-2);
+  text-align: center;
+  padding: 8px 0;
+  opacity: 0.7;
+}
+
+.watchlist-card {
+  background-color: var(--bg-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 5px !important;
+  transition: border-color 0.15s;
+}
+
+.watchlist-card:hover {
+  border-color: var(--accent) !important;
+}
+
+.watchlist-card-active {
+  border-color: var(--accent) !important;
+  background-color: rgba(37,99,235,0.06) !important;
+}
+
+/* Watchlist ticker buttons (dbc.Button color="link") */
+.watchlist-ticker-btn {
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  color: var(--text-1) !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+}
+
+.watchlist-ticker-btn:hover {
+  color: var(--accent) !important;
+  text-decoration: none !important;
+}
+
+.watchlist-ticker-btn-active {
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  color: var(--accent) !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+}
+
+.watchlist-ticker {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.remove-btn {
+  font-size: 0.7rem !important;
+  padding: 1px 5px !important;
+  line-height: 1.2 !important;
+}
+
+/* ── Main area ───────────────────────────────────────────────────────── */
+.main-area {
+  padding: 12px 16px;
+  background-color: var(--bg-1);
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+
+/* ── Asset header bar ────────────────────────────────────────────────── */
+.asset-header-bar {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 14px;
+  background-color: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.ah-ticker {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-1);
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+.ah-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-1);
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+.ah-change {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ── Controls ────────────────────────────────────────────────────────── */
+.controls-row {
+  margin-bottom: 6px;
+}
+
+.period-buttons .btn {
+  font-size: 0.72rem !important;
+  padding: 3px 8px !important;
+}
+
+.interval-radio .form-check-label,
+.ma-toggle .form-check-label {
+  font-size: 0.74rem;
+  color: var(--text-2);
+}
+
+.interval-radio .form-check-input:checked,
+.ma-toggle .form-check-input:checked {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Summary stat cards ──────────────────────────────────────────────── */
+.summary-row {
+  margin-bottom: 10px;
+}
+
+.stat-card {
+  background-color: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  min-width: 110px;
+  box-shadow: var(--shadow);
+}
+
+.stat-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  margin: 0 0 3px 0;
+}
+
+.stat-value {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+.stat-ticker {
+  font-size: 0.95rem !important;
+  color: var(--accent) !important;
+}
+
+.stat-pos { color: var(--pos) !important; }
+.stat-neg { color: var(--neg) !important; }
+
+/* ── Section titles ──────────────────────────────────────────────────── */
+.section-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  border-left: 3px solid var(--accent);
+  padding-left: 8px;
+}
+
+/* ── Charts ──────────────────────────────────────────────────────────── */
+.main-chart .js-plotly-plot,
+.sub-chart .js-plotly-plot,
+.rsi-chart .js-plotly-plot {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.rsi-chart { margin-top: 4px; }
+.sub-chart  { border-radius: 8px; }
+
+/* ── Date picker overrides ───────────────────────────────────────────── */
+.DateInput_input {
+  background-color: var(--bg-2) !important;
+  color: var(--text-1) !important;
+  font-size: 0.74rem !important;
+  border-bottom: 1px solid var(--border-2) !important;
+}
+
+.DateRangePickerInput {
+  background-color: var(--bg-2) !important;
+  border: 1px solid var(--border-2) !important;
+  border-radius: 4px !important;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-1); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-2); }
